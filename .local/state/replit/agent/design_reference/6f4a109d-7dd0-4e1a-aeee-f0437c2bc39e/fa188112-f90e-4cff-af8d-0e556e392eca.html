@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja Sas Enterprise - Sistema de Gestión Empresarial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#E3F2FD',
+                            100: '#BBDEFB',
+                            500: '#1976D2',
+                            600: '#1565C0',
+                            700: '#0D47A1',
+                        },
+                        success: {
+                            50: '#E8F5E8',
+                            500: '#4CAF50',
+                            600: '#388E3C',
+                        },
+                        warning: {
+                            500: '#FF9800',
+                        },
+                        error: {
+                            500: '#F44336',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- @COMPONENT: LandingHeader -->
+    <div id="landing-page" class="min-h-screen">
+        <!-- Navigation Header -->
+        <nav class="bg-white shadow-sm border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <h1 class="text-2xl font-bold text-primary-700">Caja Sas Enterprise</h1>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#features" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Módulos</a>
+                            <a href="#pricing" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Precios</a>
+                            <a href="#contact" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors">Contacto</a>
+                            <button onclick="showLogin()" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                                Iniciar Sesión
+                            </button>
+                            <button onclick="showRegister()" class="border border-primary-500 text-primary-500 hover:bg-primary-50 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                                Demo Gratis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <!-- A modern office space with computers and business documents -->
+        <div class="relative bg-gradient-to-r from-primary-600 to-primary-700 overflow-hidden">
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080" alt="Modern business office" class="w-full h-full object-cover opacity-20">
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                <div class="text-center">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        Sistema de Gestión <br>
+                        <span class="text-yellow-300">Todo en Uno</span>
+                    </h1>
+                    <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                        Caja Sas Enterprise es la solución multi-tenant completa para gestionar tu negocio. 
+                        Punto de venta, inventario, facturación, reportes y más en una sola plataforma.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="showRegister()" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Prueba Gratis 30 Días
+                        </button>
+                        <button onclick="showDemo()" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+                            <i class="fas fa-play mr-2"></i>
+                            Ver Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div id="features" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Módulos Principales</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Todo lo que necesitas para gestionar tu negocio en una sola plataforma</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- POS Module -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                        <div class="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-cash-register text-primary-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Punto de Venta</h3>
+                        <p class="text-gray-600 mb-4">Sistema POS completo con interfaz táctil, gestión de productos, descuentos y múltiples formas de pago.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Interfaz táctil moderna</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Múltiples formas de pago</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Gestión de descuentos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Inventory Module -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                        <div class="bg-success-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-boxes text-success-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Gestión de Inventario</h3>
+                        <p class="text-gray-600 mb-4">Control total de stock, alertas de inventario bajo, códigos de barras y categorización avanzada.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Control de stock en tiempo real</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Códigos de barras</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Alertas automáticas</li>
+                        </ul>
+                    </div>
+
+                    <!-- Sales Module -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                        <div class="bg-yellow-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Reportes y Ventas</h3>
+                        <p class="text-gray-600 mb-4">Análisis detallado de ventas, gráficos interactivos y reportes personalizables para tomar decisiones informadas.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Dashboards interactivos</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Reportes personalizables</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Análisis de tendencias</li>
+                        </ul>
+                    </div>
+
+                    <!-- Billing Module -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                        <div class="bg-purple-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-file-invoice text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Facturación</h3>
+                        <p class="text-gray-600 mb-4">Genera facturas profesionales, notas de crédito y maneja la contabilidad básica de tu negocio.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Facturas profesionales</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Notas de crédito</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Contabilidad básica</li>
+                        </ul>
+                    </div>
+
+                    <!-- Purchases Module -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                        <div class="bg-indigo-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-shopping-cart text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Gestión de Compras</h3>
+                        <p class="text-gray-600 mb-4">Administra proveedores, órdenes de compra y controla los costos de adquisición de productos.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Gestión de proveedores</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Órdenes de compra</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Control de costos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Multi-tenant Module -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100 hover:shadow-xl transition-shadow">
+                        <div class="bg-red-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                            <i class="fas fa-cloud text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Multi-Tenant</h3>
+                        <p class="text-gray-600 mb-4">Cada licencia con su propia base de datos aislada. Seguridad y privacidad garantizada.</p>
+                        <ul class="text-sm text-gray-500 space-y-2">
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Datos completamente aislados</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Subdominio personalizado</li>
+                            <li><i class="fas fa-check text-success-500 mr-2"></i>Escalabilidad garantizada</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pricing Section -->
+        <div id="pricing" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Planes Flexibles</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Elige el plan que mejor se adapte a tu negocio</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Basic Plan -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Básico</h3>
+                            <div class="text-4xl font-bold text-primary-600 mb-2">$29<span class="text-lg text-gray-500">/mes</span></div>
+                            <p class="text-gray-600">Ideal para pequeños negocios</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Hasta 1,000 productos</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>1 usuario</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>POS básico</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></li>Reportes básicos</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Soporte por email</li>
+                        </ul>
+                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Comenzar Prueba
+                        </button>
+                    </div>
+
+                    <!-- Professional Plan -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-2 border-primary-500 relative">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <span class="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-semibold">Más Popular</span>
+                        </div>
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Profesional</h3>
+                            <div class="text-4xl font-bold text-primary-600 mb-2">$79<span class="text-lg text-gray-500">/mes</span></div>
+                            <p class="text-gray-600">Perfecto para medianos negocios</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Productos ilimitados</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Hasta 5 usuarios</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>POS completo</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Reportes avanzados</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Facturación electrónica</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Soporte prioritario</li>
+                        </ul>
+                        <button class="w-full bg-primary-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Comenzar Prueba
+                        </button>
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Empresarial</h3>
+                            <div class="text-4xl font-bold text-primary-600 mb-2">$149<span class="text-lg text-gray-500">/mes</span></div>
+                            <p class="text-gray-600">Para grandes empresas</p>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Productos ilimitados</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Usuarios ilimitados</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Múltiples sucursales</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>API personalizada</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Integración contable</li>
+                            <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3"></i>Soporte 24/7</li>
+                        </ul>
+                        <button class="w-full bg-gray-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            Contactar Ventas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: LandingHeader -->
+
+    <!-- @COMPONENT: LoginModal -->
+    <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md mx-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">Iniciar Sesión</h2>
+                <p class="text-gray-600 mt-2">Accede a tu panel de control</p>
+            </div>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="tu@email.com" data-mock="true">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="••••••••" data-mock="true">
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="rounded border-gray-300 text-primary-600 focus:ring-primary-500">
+                        <span class="ml-2 text-sm text-gray-600">Recordarme</span>
+                    </label>
+                    <a href="#" class="text-sm text-primary-600 hover:text-primary-500">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="button" onclick="showDashboard()" class="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors">
+                    Iniciar Sesión
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">¿No tienes cuenta? 
+                    <button onclick="showRegister()" class="text-primary-600 hover:text-primary-500 font-semibold">Regístrate aquí</button>
+                </p>
+            </div>
+            
+            <button onclick="hideLogin()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: LoginModal -->
+
+    <!-- @COMPONENT: RegisterModal -->
+    <div id="register-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md mx-4">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">Demo Gratis</h2>
+                <p class="text-gray-600 mt-2">Prueba todas las funciones por 30 días</p>
+            </div>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Juan Pérez" data-mock="true">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="tu@empresa.com" data-mock="true">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nombre de tu Negocio</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Mi Empresa S.A." data-mock="true">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="••••••••" data-mock="true">
+                </div>
+                
+                <button type="button" onclick="showDashboard()" class="w-full bg-success-500 hover:bg-success-600 text-white py-3 px-4 rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Comenzar Demo Gratis
+                </button>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-500">Al registrarte aceptas nuestros términos y condiciones</p>
+            </div>
+            
+            <button onclick="hideRegister()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: RegisterModal -->
+
+    <!-- @COMPONENT: MainDashboard -->
+    <div id="dashboard" class="hidden min-h-screen bg-gray-50">
+        <!-- Sidebar -->
+        <div class="fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out" id="sidebar">
+            <div class="flex items-center justify-center h-16 px-4 bg-primary-600">
+                <h1 class="text-xl font-bold text-white">Caja Sas Enterprise</h1>
+            </div>
+            
+            <nav class="mt-5 px-2">
+                <div class="space-y-1">
+                    <button onclick="showSection('dashboard')" class="nav-item bg-primary-50 text-primary-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-tachometer-alt mr-3"></i>
+                        Dashboard
+                    </button>
+                    
+                    <button onclick="showSection('pos')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-cash-register mr-3"></i>
+                        Punto de Venta
+                    </button>
+                    
+                    <button onclick="showSection('products')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-boxes mr-3"></i>
+                        Productos
+                    </button>
+                    
+                    <button onclick="showSection('sales')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Ventas
+                    </button>
+                    
+                    <button onclick="showSection('purchases')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-shopping-cart mr-3"></i>
+                        Compras
+                    </button>
+                    
+                    <button onclick="showSection('billing')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-file-invoice mr-3"></i>
+                        Facturación
+                    </button>
+                    
+                    <button onclick="showSection('inventory')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-warehouse mr-3"></i>
+                        Inventario
+                    </button>
+                    
+                    <button onclick="showSection('reports')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-chart-bar mr-3"></i>
+                        Reportes
+                    </button>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <button onclick="showSection('settings')" class="nav-item text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-cog mr-3"></i>
+                        Configuración
+                    </button>
+                    
+                    <button onclick="logout()" class="text-red-600 hover:bg-red-50 hover:text-red-700 group flex items-center px-2 py-2 text-sm font-medium rounded-md w-full">
+                        <i class="fas fa-sign-out-alt mr-3"></i>
+                        Cerrar Sesión
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:pl-64">
+            <!-- Top Header -->
+            <div class="bg-white shadow-sm border-b border-gray-200">
+                <div class="px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex items-center">
+                            <button class="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100" onclick="toggleSidebar()">
+                                <i class="fas fa-bars text-xl"></i>
+                            </button>
+                            <h1 class="ml-4 text-xl font-semibold text-gray-900" id="page-title">Dashboard</h1>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="hidden md:flex items-center space-x-4">
+                                <div class="text-sm text-gray-500">
+                                    <span data-bind="tenant.name" data-mock="true">Mi Empresa Demo</span>
+                                </div>
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-sm font-semibold" data-bind="user.initials" data-mock="true">JP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div id="dashboard-content" class="p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-primary-100 rounded-lg">
+                                <i class="fas fa-dollar-sign text-primary-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Ventas Hoy</p>
+                                <p class="text-2xl font-semibold text-gray-900" data-bind="stats.todaySales" data-mock="true">$15,247</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-success-100 rounded-lg">
+                                <i class="fas fa-shopping-cart text-success-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Transacciones</p>
+                                <p class="text-2xl font-semibold text-gray-900" data-bind="stats.transactions" data-mock="true">127</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-yellow-100 rounded-lg">
+                                <i class="fas fa-boxes text-yellow-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Productos</p>
+                                <p class="text-2xl font-semibold text-gray-900" data-bind="stats.products" data-mock="true">843</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-2 bg-red-100 rounded-lg">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Stock Bajo</p>
+                                <p class="text-2xl font-semibold text-gray-900" data-bind="stats.lowStock" data-mock="true">12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Ventas Mensuales</h3>
+                        <canvas id="salesChart" width="400" height="200"></canvas>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Productos Más Vendidos</h3>
+                        <canvas id="productsChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900">Actividad Reciente</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <!-- @MAP: recentActivity.map(activity => ( -->
+                            <div class="flex items-center space-x-4" data-mock="true">
+                                <div class="w-2 h-2 bg-success-500 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">Venta #1247 completada</p>
+                                    <p class="text-sm text-gray-500">$245.00 - Hace 5 minutos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4" data-mock="true">
+                                <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">Producto "Hamburguesa Clásica" agregado</p>
+                                    <p class="text-sm text-gray-500">Hace 15 minutos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4" data-mock="true">
+                                <div class="w-2 h-2 bg-warning-500 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">Stock bajo: Papas Fritas</p>
+                                    <p class="text-sm text-gray-500">Quedan 5 unidades - Hace 1 hora</p>
+                                </div>
+                            </div>
+                            <!-- @END_MAP )) -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POS Section -->
+            <div id="pos-content" class="p-6 hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
+                    <!-- Products Grid -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-lg shadow h-full">
+                            <div class="p-4 border-b border-gray-200">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-lg font-semibold text-gray-900">Productos</h3>
+                                    <div class="flex space-x-2">
+                                        <input type="text" placeholder="Buscar producto..." class="px-3 py-2 border border-gray-300 rounded-lg text-sm w-64">
+                                        <button class="bg-primary-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-primary-600">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="p-4">
+                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                                    <!-- @MAP: products.map(product => ( -->
+                                    <!-- Classic cheeseburger with lettuce and tomato on a wooden board -->
+                                    <div class="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors" onclick="addToCart('hamburguesa-clasica')" data-mock="true">
+                                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=150" alt="Hamburguesa Clásica" class="w-full h-24 object-cover rounded mb-2">
+                                        <h4 class="font-semibold text-sm text-gray-900">Hamburguesa Clásica</h4>
+                                        <p class="text-primary-600 font-bold text-sm">$12.99</p>
+                                    </div>
+                                    
+                                    <!-- Golden french fries in a red basket -->
+                                    <div class="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors" onclick="addToCart('papas-fritas')" data-mock="true">
+                                        <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=150" alt="Papas Fritas" class="w-full h-24 object-cover rounded mb-2">
+                                        <h4 class="font-semibold text-sm text-gray-900">Papas Fritas</h4>
+                                        <p class="text-primary-600 font-bold text-sm">$4.99</p>
+                                    </div>
+                                    
+                                    <!-- Refreshing cola drink with ice in a glass -->
+                                    <div class="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors" onclick="addToCart('refresco')" data-mock="true">
+                                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=150" alt="Refresco" class="w-full h-24 object-cover rounded mb-2">
+                                        <h4 class="font-semibold text-sm text-gray-900">Refresco</h4>
+                                        <p class="text-primary-600 font-bold text-sm">$2.50</p>
+                                    </div>
+                                    
+                                    <!-- Grilled chicken breast with herbs and vegetables -->
+                                    <div class="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors" onclick="addToCart('pollo-asado')" data-mock="true">
+                                        <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=150" alt="Pollo Asado" class="w-full h-24 object-cover rounded mb-2">
+                                        <h4 class="font-semibold text-sm text-gray-900">Pollo Asado</h4>
+                                        <p class="text-primary-600 font-bold text-sm">$15.99</p>
+                                    </div>
+                                    
+                                    <!-- Fresh garden salad with mixed greens and vegetables -->
+                                    <div class="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors" onclick="addToCart('ensalada')" data-mock="true">
+                                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=150" alt="Ensalada Fresca" class="w-full h-24 object-cover rounded mb-2">
+                                        <h4 class="font-semibold text-sm text-gray-900">Ensalada Fresca</h4>
+                                        <p class="text-primary-600 font-bold text-sm">$8.99</p>
+                                    </div>
+                                    
+                                    <!-- Margherita pizza with fresh basil and mozzarella -->
+                                    <div class="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors" onclick="addToCart('pizza')" data-mock="true">
+                                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=150" alt="Pizza Margherita" class="w-full h-24 object-cover rounded mb-2">
+                                        <h4 class="font-semibold text-sm text-gray-900">Pizza Margherita</h4>
+                                        <p class="text-primary-600 font-bold text-sm">$18.99</p>
+                                    </div>
+                                    <!-- @END_MAP )) -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cart Section -->
+                    <div class="bg-white rounded-lg shadow h-full">
+                        <div class="p-4 border-b border-gray-200">
+                            <h3 class="text-lg font-semibold text-gray-900">Orden Actual</h3>
+                        </div>
+                        
+                        <div class="p-4 flex-1">
+                            <div id="cart-items" class="space-y-3 mb-6">
+                                <!-- Cart items will be populated here -->
+                                <div class="text-center text-gray-500 py-8">
+                                    <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                                    <p>Selecciona productos para comenzar</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border-t border-gray-200">
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between text-sm">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal">$0.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span>Impuestos:</span>
+                                    <span id="tax">$0.00</span>
+                                </div>
+                                <div class="flex justify-between font-bold text-lg border-t pt-2">
+                                    <span>Total:</span>
+                                    <span id="total">$0.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <button class="w-full bg-success-500 hover:bg-success-600 text-white py-3 rounded-lg font-semibold transition-colors" onclick="processPayment()">
+                                    <i class="fas fa-credit-card mr-2"></i>
+                                    Procesar Pago
+                                </button>
+                                <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 rounded-lg font-medium transition-colors" onclick="clearCart()">
+                                    Limpiar Orden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products-content" class="p-6 hidden">
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900">Gestión de Productos</h3>
+                        <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-medium transition-colors">
+                            <i class="fas fa-plus mr-2"></i>
+                            Nuevo Producto
+                        </button>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="mb-4 flex space-x-4">
+                            <input type="text" placeholder="Buscar productos..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg">
+                            <select class="px-4 py-2 border border-gray-300 rounded-lg">
+                                <option>Todas las categorías</option>
+                                <option>Alimentos</option>
+                                <option>Bebidas</option>
+                                <option>Postres</option>
+                            </select>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Producto</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Precio</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <!-- @MAP: products.map(product => ( -->
+                                    <tr data-mock="true">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <!-- Hamburger with cheese and lettuce -->
+                                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=50&h=50" alt="Hamburguesa Clásica" class="w-12 h-12 rounded-lg object-cover">
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Hamburguesa Clásica</div>
+                                                    <div class="text-sm text-gray-500">SKU: HAM001</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Alimentos</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$12.99</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">45</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-success-100 text-success-800">Activo</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary-600 hover:text-primary-900 mr-3">Editar</button>
+                                            <button class="text-red-600 hover:text-red-900">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                    <tr data-mock="true">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <!-- French fries in a basket -->
+                                                <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=50&h=50" alt="Papas Fritas" class="w-12 h-12 rounded-lg object-cover">
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">Papas Fritas</div>
+                                                    <div class="text-sm text-gray-500">SKU: PAP001</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Alimentos</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">$4.99</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            <span class="text-red-600 font-semibold">5</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-warning-100 text-warning-800">Stock Bajo</span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <button class="text-primary-600 hover:text-primary-900 mr-3">Editar</button>
+                                            <button class="text-red-600 hover:text-red-900">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                    <!-- @END_MAP )) -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Section -->
+            <div id="sales-content" class="p-6 hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-primary-100 rounded-lg">
+                                <i class="fas fa-chart-line text-primary-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Ventas del Mes</p>
+                                <p class="text-3xl font-bold text-gray-900" data-mock="true">$45,280</p>
+                                <p class="text-sm text-success-600">+12.5% vs mes anterior</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-success-100 rounded-lg">
+                                <i class="fas fa-receipt text-success-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Transacciones</p>
+                                <p class="text-3xl font-bold text-gray-900" data-mock="true">1,247</p>
+                                <p class="text-sm text-success-600">+8.3% vs mes anterior</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-yellow-100 rounded-lg">
+                                <i class="fas fa-calculator text-yellow-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-500">Ticket Promedio</p>
+                                <p class="text-3xl font-bold text-gray-900" data-mock="true">$36.32</p>
+                                <p class="text-sm text-success-600">+3.8% vs mes anterior</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900">Gráfico de Ventas</h3>
+                    </div>
+                    <div class="p-6">
+                        <canvas id="salesDetailChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections would follow similar patterns -->
+            <div id="purchases-content" class="p-6 hidden">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Módulo de Compras</h3>
+                    <p class="text-gray-600">Gestión de proveedores, órdenes de compra y control de inventario.</p>
+                    <!-- TODO: Implement purchases module functionality -->
+                </div>
+            </div>
+
+            <div id="billing-content" class="p-6 hidden">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Módulo de Facturación</h3>
+                    <p class="text-gray-600">Genera facturas, notas de crédito y maneja la contabilidad básica.</p>
+                    <!-- TODO: Implement billing module functionality -->
+                </div>
+            </div>
+
+            <div id="inventory-content" class="p-6 hidden">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Gestión de Inventario</h3>
+                    <p class="text-gray-600">Control de stock, alertas de inventario bajo y gestión de almacenes.</p>
+                    <!-- TODO: Implement inventory module functionality -->
+                </div>
+            </div>
+
+            <div id="reports-content" class="p-6 hidden">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Reportes y Analytics</h3>
+                    <p class="text-gray-600">Reportes detallados, análisis de tendencias y métricas de negocio.</p>
+                    <!-- TODO: Implement reports module functionality -->
+                </div>
+            </div>
+
+            <div id="settings-content" class="p-6 hidden">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Configuración del Sistema</h3>
+                    <p class="text-gray-600">Configuración de empresa, usuarios, permisos y preferencias del sistema.</p>
+                    <!-- TODO: Implement settings module functionality -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: MainDashboard -->
+
+    <script>
+        // Application State
+        let currentSection = 'dashboard';
+        let cart = [];
+        let products = [
+            { id: 'hamburguesa-clasica', name: 'Hamburguesa Clásica', price: 12.99 },
+            { id: 'papas-fritas', name: 'Papas Fritas', price: 4.99 },
+            { id: 'refresco', name: 'Refresco', price: 2.50 },
+            { id: 'pollo-asado', name: 'Pollo Asado', price: 15.99 },
+            { id: 'ensalada', name: 'Ensalada Fresca', price: 8.99 },
+            { id: 'pizza', name: 'Pizza Margherita', price: 18.99 }
+        ];
+
+        // Navigation Functions
+        function showLogin() {
+            document.getElementById('login-modal').classList.remove('hidden');
+        }
+
+        function hideLogin() {
+            document.getElementById('login-modal').classList.add('hidden');
+        }
+
+        function showRegister() {
+            hideLogin();
+            document.getElementById('register-modal').classList.remove('hidden');
+        }
+
+        function hideRegister() {
+            document.getElementById('register-modal').classList.add('hidden');
+        }
+
+        function showDemo() {
+            showRegister();
+        }
+
+        function showDashboard() {
+            hideLogin();
+            hideRegister();
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            initCharts();
+        }
+
+        function logout() {
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('landing-page').classList.remove('hidden');
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
+
+        function showSection(section) {
+            // Hide all content sections
+            const sections = ['dashboard', 'pos', 'products', 'sales', 'purchases', 'billing', 'inventory', 'reports', 'settings'];
+            sections.forEach(s => {
+                document.getElementById(s + '-content').classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById(section + '-content').classList.remove('hidden');
+
+            // Update page title
+            const titles = {
+                'dashboard': 'Dashboard',
+                'pos': 'Punto de Venta',
+                'products': 'Productos',
+                'sales': 'Ventas',
+                'purchases': 'Compras',
+                'billing': 'Facturación',
+                'inventory': 'Inventario',
+                'reports': 'Reportes',
+                'settings': 'Configuración'
+            };
+            document.getElementById('page-title').textContent = titles[section];
+
+            // Update navigation active state
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('bg-primary-50', 'text-primary-700');
+                item.classList.add('text-gray-600', 'hover:bg-gray-50', 'hover:text-gray-900');
+            });
+
+            // Set active navigation item
+            event.target.classList.remove('text-gray-600', 'hover:bg-gray-50', 'hover:text-gray-900');
+            event.target.classList.add('bg-primary-50', 'text-primary-700');
+
+            currentSection = section;
+
+            // Initialize section-specific functionality
+            if (section === 'sales') {
+                initSalesChart();
+            }
+        }
+
+        // POS Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartDisplay();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartDisplay();
+        }
+
+        function updateQuantity(productId, quantity) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = Math.max(0, quantity);
+                if (item.quantity === 0) {
+                    removeFromCart(productId);
+                } else {
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center text-gray-500 py-8">
+                        <i class="fas fa-shopping-cart text-4xl mb-4"></i>
+                        <p>No hay productos en la orden</p>
+                    </div>
+                `;
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div class="flex-1">
+                            <h4 class="font-medium text-sm">${item.name}</h4>
+                            <p class="text-primary-600 font-semibold text-sm">$${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})" class="w-6 h-6 bg-gray-200 rounded text-xs hover:bg-gray-300">-</button>
+                            <span class="text-sm font-medium w-8 text-center">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})" class="w-6 h-6 bg-gray-200 rounded text-xs hover:bg-gray-300">+</button>
+                        </div>
+                        <button onclick="removeFromCart('${item.id}')" class="ml-2 text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash text-xs"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            // Update totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.1; // 10% tax
+            const total = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartDisplay();
+        }
+
+        function processPayment() {
+            if (cart.length === 0) {
+                alert('No hay productos en la orden');
+                return;
+            }
+
+            // TODO: Implement payment processing logic
+            alert('Pago procesado exitosamente!');
+            clearCart();
+        }
+
+        // Chart Initialization
+        function initCharts() {
+            // Sales Chart
+            const salesCtx = document.getElementById('salesChart').getContext('2d');
+            new Chart(salesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Ventas ($)',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000],
+                        borderColor: '#1976D2',
+                        backgroundColor: 'rgba(25, 118, 210, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#f0f0f0'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Products Chart
+            const productsCtx = document.getElementById('productsChart').getContext('2d');
+            new Chart(productsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Hamburguesas', 'Pizza', 'Bebidas', 'Postres', 'Otros'],
+                    datasets: [{
+                        data: [35, 25, 20, 12, 8],
+                        backgroundColor: [
+                            '#1976D2',
+                            '#388E3C',
+                            '#FF9800',
+                            '#F44336',
+                            '#9C27B0'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function initSalesChart() {
+            setTimeout(() => {
+                const salesDetailCtx = document.getElementById('salesDetailChart');
+                if (salesDetailCtx) {
+                    new Chart(salesDetailCtx.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+                            datasets: [{
+                                label: 'Ventas Diarias',
+                                data: [1200, 1900, 1500, 2500, 2200, 3000, 2800],
+                                backgroundColor: '#1976D2',
+                                borderRadius: 4
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: {
+                                        color: '#f0f0f0'
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }, 100);
+        }
+
+        // Initialize application
+        (function() {
+            // Set up event listeners and initial state
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize any startup functionality
+                console.log('Caja Sas Enterprise initialized');
+            });
+        })();
+    </script>
+</body>
+</html>
