@@ -24,10 +24,10 @@ import {
   Quote,
 } from "lucide-react";
 
-// Importar las imágenes de testimonios
-import testimonialImage1 from "@assets/20250702_1023_Mujer Empresaria Organizada_simple_compose_01jz62h2nnemvs2q7ef5cx89jr_1751477159018.png";
-import testimonialImage2 from "@assets/20250702_1018_Mecánico y Caja Sas_simple_compose_01jz628yj5ez2avk8v3e3z4746_1751477159019.png";
-import testimonialImage3 from "@assets/20250702_1014_Sistema Empresarial Eficiente_simple_compose_01jz620hwses89m8sm3fpfxq1w_1751477159020.png";
+// URLs de las imágenes de testimonios
+const testimonialImage1 = "/images/testimonial1.png";
+const testimonialImage2 = "/images/testimonial2.png";
+const testimonialImage3 = "/images/testimonial3.png";
 
 
 export default function LandingPage() {
