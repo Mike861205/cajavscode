@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import promoImage from "@assets/20250622_2220_Caja Sas Enterprise Logo_simple_compose_01jydkkxm9e1b98jpdvmw5p3vz_1751645848242.png";
+const promoImage = "/images/promo-logo.png";
 
 export default function PromotionFloat() {
   const [isVisible, setIsVisible] = useState(false);

@@ -7,8 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Check, Shield, Lock, Star } from "lucide-react";
 import { useLocation } from "wouter";
-import whiteBoxImage from "@assets/20250622_2216_Logo Caja Sas Enterprise_simple_compose_01jydkcxwhejf8w0phs9jtcnxd_1750711420416.png";
-import goldBoxImage from "@assets/20250622_2220_Caja Sas Enterprise Logo_simple_compose_01jydkkxm9e1b98jpdvmw5p3vz_1750711420414.png";
+const whiteBoxImage = "/images/logo-white-box.png";
+const goldBoxImage = "/images/logo-gold-box.png";
 
 // Load Stripe with error handling
 let stripePromise: Promise<any> | null = null;
