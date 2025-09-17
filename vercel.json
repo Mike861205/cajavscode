@@ -1,0 +1,40 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/dist/index.js"
+    },
+    {
+      "src": "/health",
+      "dest": "/dist/index.js"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/dist/public/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/dist/public/images/$1"
+    },
+    {
+      "src": "/(favicon\\.ico|robots\\.txt|sitemap\\.xml)",
+      "dest": "/dist/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/public/index.html"
+    }
+  ],
+  "functions": {
+    "dist/index.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
