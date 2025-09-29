@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
@@ -85,12 +86,17 @@ import { seedCurrencies } from "./seedCurrencies";
     }
 
     // Start the server
-    const port = 5000;
-    log(`🌍 Starting server on 0.0.0.0:${port}...`);
-    server.listen(port, "0.0.0.0", () => {
+    const port = parseInt(process.env.PORT || '4000', 10);
+    const host = process.env.HOST || '0.0.0.0';
+    
+    log(`🌍 Starting server on ${host}:${port}...`);
+    log(`🔧 Environment: ${process.env.NODE_ENV || 'development'}`);
+    
+    server.listen(port, host, () => {
       log(`✅ Server successfully started and listening on port ${port}`);
       log(`🌟 Application is now ready to accept connections`);
-      log(`🔗 Health check available at: http://localhost:${port}/health`);
+      log(`🔗 Health check available at: http://${host}:${port}/health`);
+      log(`🏠 Application URL: http://${host}:${port}`);
     });
 
     // Handle server errors

@@ -1,11 +1,9 @@
 import 'dotenv/config';
-import { Pool, neonConfig } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-serverless';
-import ws from "ws";
+import pg from 'pg';
+import { drizzle } from 'drizzle-orm/node-postgres';
 import * as schema from "@shared/schema";
 
-// Configure Neon for WebSocket support
-neonConfig.webSocketConstructor = ws;
+const { Pool } = pg;
 
 if (!process.env.DATABASE_URL) {
   throw new Error(
@@ -13,19 +11,35 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-// Configure connection pool with proper settings for Neon serverless
-export const pool = new Pool({ 
+console.log('🏭 Configuring PostgreSQL connection for VPS/Production...');
+
+// Configure connection pool with proper settings for Neon with pg
+export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false },
   max: 10, // Maximum number of connections in the pool
   idleTimeoutMillis: 30000, // Close idle connections after 30 seconds
-  connectionTimeoutMillis: 5000, // Timeout for establishing new connections
-  maxUses: 7500, // Rotate connections after 7500 uses to prevent stale connections
+  connectionTimeoutMillis: 10000, // Timeout for establishing new connections
   allowExitOnIdle: false // Keep the pool alive
 });
 
+// Create Drizzle instance
+export const db = drizzle(pool, { schema });
+
 // Handle pool errors gracefully
-pool.on('error', (err) => {
-  console.error('Unexpected error on idle client', err);
+pool.on('error', (err: Error) => {
+  console.error('💥 Unexpected error on idle client:', err.message);
+  console.error('📍 Stack trace:', err.stack);
 });
 
-export const db = drizzle({ client: pool, schema });
+// Test connection on startup
+pool.connect()
+  .then((client) => {
+    console.log('✅ Database connection established successfully');
+    client.release();
+  })
+  .catch((err) => {
+    console.error('💥 Error connecting to database:', err.message);
+    console.error('📍 Stack trace:', err.stack);
+    throw err;
+  });
