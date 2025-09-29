@@ -10,8 +10,7 @@
     "start:vps": "NODE_ENV=production PORT=4000 node dist/index.js",
     "dev:vps": "cross-env NODE_ENV=production PORT=4000 tsx server/index.ts",
     "check": "tsc",
-    "db:push": "drizzle-kit push",
-    "vercel:deploy": "vercel --prod"
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.37.0",

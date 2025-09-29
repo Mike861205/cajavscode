@@ -2,9 +2,9 @@
 
 🚀 **Sistema POS multitenant completo con React + Node.js + PostgreSQL**
 
-## Estado del Deploy
-- **Último commit requerido:** c1c5786
-- **Configuración:** vercel.json actualizado
+## Estado del Proyecto
+- **Plataforma:** VPS Liquid Web (AlmaLinux)
+- **Database:** PostgreSQL con Neon
 - **Status:** ✅ Listo para producción
 
 ## Características
@@ -16,17 +16,22 @@
 - 🤖 Asistente IA integrado
 - 📱 Responsive design
 
-## Quick Start
+## Quick Start - Desarrollo Local
 ```bash
 npm install
-npm run dev
-# http://localhost:5000
+# Copiar variables de entorno
+cp .env.example .env
+# Desarrollo local (puerto 5000)
+NODE_ENV=development PORT=5000 npx tsx server/index.ts
 ```
 
-## Deploy en Vercel
-- Build Command: `npm run build`
-- Output Directory: `dist/public`
-- Node.js Version: 20.x
+## Deploy en VPS
+```bash
+npm install
+npm run build
+npm run start:vps
+# Producción en puerto 4000
+```
 
 ---
 **Última actualización:** 2025-09-17
